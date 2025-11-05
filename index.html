@@ -188,6 +188,14 @@
             color: var(--light-text-color);
             margin-bottom: 20px;
         }
+        .hero-text .nickname {
+            display: block; /* Make it a block to stand out */
+            font-size: 1.5em; /* Larger for impact */
+            font-weight: 600;
+            color: #4CAF50; /* A contrasting, vibrant color for the nickname */
+            margin-top: 15px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
         .hero-image {
             flex: 1;
             text-align: center;
@@ -294,6 +302,9 @@
             .hero-text p {
                 font-size: 1.1em;
             }
+            .hero-text .nickname {
+                font-size: 1.3em;
+            }
             .hero-section {
                 flex-direction: column;
                 padding: 40px;
@@ -394,6 +405,9 @@
             .hero-text p {
                 font-size: 1em;
             }
+            .hero-text .nickname {
+                font-size: 1.2em;
+            }
             .story-cards {
                 grid-template-columns: 1fr;
             }
@@ -409,6 +423,9 @@
             }
             .hero-text p {
                 font-size: 0.9em;
+            }
+            .hero-text .nickname {
+                font-size: 1.1em;
             }
             .logo img {
                 height: 45px;
@@ -441,24 +458,29 @@
                 <a href="#">Academics</a>
                 <a href="#">Campus Life</a>
                 <a href="#">News & Events</a>
-                <a href="#" class="active mobile-button">Alumni</a> </nav>
+                <a href="#" class="active mobile-button">Alumni</a>
+            </nav>
         </div>
     </header>
 
-    <div class="overlay" id="overlay"></div> <main class="container">
+    <div class="overlay" id="overlay"></div>
+
+    <main class="container">
         <section class="hero-section">
             <div class="hero-text">
                 <h1>CHRIST UNIVERSITY CELEBRATES OUR STAR ALUMNUS!</h1>
                 <p>Pradeep Raj achieves Lead Executive Officer position with a 20 LPA package at Cognizant (B-Tech 2022-26).</p>
                 <p>We are incredibly proud of his accomplishment and wish him continued success!</p>
+                <span class="nickname">Hereafter, we proudly call him: **CTS Pradeep**</span>
             </div>
             <div class="hero-image">
                 <img src="1.png" alt="Pradeep Raj Cognizant Poster">
-                </div>
+            </div>
         </section>
 
         <section class="more-stories-section">
-            <h2>More Success Stories <i class="fas fa-search search-icon"></i></h2> <div class="story-cards">
+            <h2>More Success Stories <i class="fas fa-search search-icon"></i></h2>
+            <div class="story-cards">
                 <a href="#" class="story-card">
                     <img src="1.png" alt="Alumni Success Story 1">
                     <h3>Priya Sharma lands role at Google</h3>
