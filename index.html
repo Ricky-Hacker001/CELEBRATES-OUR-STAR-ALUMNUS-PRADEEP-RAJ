@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christ University Celebrates Pradeep Raj - Star Alumnus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a0dad; /* Christ University Purple */
+            --secondary-color: #f0f0f5; /* Light grey/off-white */
+            --text-color: #333;
+            --light-text-color: #666;
+            --white: #fff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        header {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky; /* Keep header at top */
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 55px; /* Slightly larger logo */
+            transition: transform 0.3s ease;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            margin-left: 30px; /* More spacing */
+            text-decoration: none;
+            color: var(--light-text-color);
+            font-weight: 600; /* Bolder for navigation */
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        .nav-links a.active:hover {
+            color: var(--primary-color); /* Maintain color on hover for active link */
+        }
+        /* Mobile Active Link Button */
+        .nav-links a.active.mobile-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-links a.active.mobile-button:hover {
+            background-color: #5a099a; /* Darker purple on hover */
+            transform: translateY(-2px);
+        }
+
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            z-index: 1001; /* Ensure it's above other content */
+            position: relative; /* For animation */
+        }
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-color);
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        /* Hamburger animation to 'X' */
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        /* Hero section styles */
+        .hero-section {
+            background: linear-gradient(135deg, var(--white) 0%, #e8e8ed 100%);
+            margin-top: 30px; /* More space from header */
+            padding: 60px; /* More padding */
+            display: flex;
+            align-items: center;
+            gap: 60px; /* More gap */
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden; /* For background elements */
+            position: relative;
+        }
+        .hero-section::before { /* Decorative background element */
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(106, 13, 173, 0.05); /* Light primary color */
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .hero-section::after { /* Decorative background element */
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(106, 13, 173, 0.03);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-text h1 {
+            color: var(--primary-color);
+            font-size: 3.2em; /* Larger, more impactful heading */
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 700; /* Bolder */
+        }
+        .hero-text p {
+            font-size: 1.3em; /* Slightly larger body text */
+            line-height: 1.8;
+            color: var(--light-text-color);
+            margin-bottom: 20px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            min-width: 300px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow); /* Shadow on image */
+            transition: transform 0.3s ease-in-out;
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* More Stories Section */
+        .more-stories-section {
+            margin-top: 60px; /* More top margin */
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .more-stories-section h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+        .more-stories-section h2 .search-icon {
+            font-size: 1.2em; /* Adjusted icon size */
+            color: var(--light-text-color);
+            transition: color 0.3s ease;
+        }
+        .more-stories-section h2 .search-icon:hover {
+            color: var(--primary-color);
+        }
+        .story-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; /* More gap */
+        }
+        .story-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow for cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .story-card img {
+            max-width: 100%;
+            height: 180px; /* Taller images for better impact */
+            object-fit: cover;
+            border-radius: var(--border-radius) var(--border-radius) 0 0; /* Rounded top corners */
+            margin: -20px -20px 20px -20px; /* Extend image to card edges */
+            width: calc(100% + 40px); /* Adjust width to compensate for negative margin */
+            display: block; /* Remove extra space below image */
+        }
+        .story-card h3 {
+            font-size: 1.3em; /* Larger heading for cards */
+            margin-top: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .story-card p {
+            font-size: 0.95em;
+            color: var(--light-text-color);
+            margin-bottom: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+
+        /* --- Responsive Styles --- */
+
+        /* Tablets and smaller desktops */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+            .hero-text p {
+                font-size: 1.1em;
+            }
+            .hero-section {
+                flex-direction: column;
+                padding: 40px;
+                gap: 40px;
+            }
+            .hero-text, .hero-image {
+                min-width: unset;
+                width: 100%;
+            }
+
+            /* Hamburger always visible */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Mobile menu styling */
+            .nav-links {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                position: fixed; /* Fixed position for full screen overlay */
+                top: 0;
+                right: -100%; /* Off-screen by default */
+                width: 70%; /* Takes up 70% of screen width */
+                max-width: 300px;
+                height: 100%;
+                background-color: var(--white);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                padding-top: 80px; /* Space for logo/header */
+                border-left: 1px solid #eee;
+                z-index: 999;
+                transition: right 0.4s ease-in-out; /* Smooth slide-in */
+            }
+            .nav-links.active {
+                right: 0; /* Slide in */
+            }
+            .nav-links a {
+                margin: 0;
+                padding: 15px 30px; /* More padding for mobile links */
+                border-bottom: 1px solid var(--secondary-color);
+                width: 100%; /* Full width links */
+                box-sizing: border-box; /* Include padding in width */
+                color: var(--text-color); /* Reset link color for mobile menu */
+            }
+            .nav-links a:hover {
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+            }
+            .nav-links a.active {
+                 background-color: transparent; /* Remove active background for menu items */
+                 color: var(--primary-color);
+            }
+            .nav-links a.active::after {
+                width: 0; /* No underline for default active in mobile menu */
+            }
+            .nav-links a.active.mobile-button { /* Apply button style specifically for the "Alumni" link */
+                background-color: var(--primary-color);
+                color: var(--white);
+                border-radius: var(--border-radius);
+                margin: 20px 30px; /* Margin to make it look like a button */
+                padding: 10px 20px;
+                text-align: center;
+                border-bottom: none;
+                font-weight: 600;
+            }
+            .nav-links a.active.mobile-button:hover {
+                background-color: #5a099a;
+                transform: none; /* Remove hover transform for mobile */
+            }
+
+            /* Overlay for when menu is open */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 998;
+            }
+            .overlay.active {
+                display: block;
+            }
+        }
+
+        /* Mobile devices */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            .hero-section {
+                padding: 30px;
+                gap: 30px;
+            }
+            .hero-text h1 {
+                font-size: 2em;
+            }
+            .hero-text p {
+                font-size: 1em;
+            }
+            .story-cards {
+                grid-template-columns: 1fr;
+            }
+            .more-stories-section h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        /* Very small mobile devices */
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8em;
+            }
+            .hero-text p {
+                font-size: 0.9em;
+            }
+            .logo img {
+                height: 45px;
+            }
+            .hero-section {
+                padding: 20px;
+            }
+            .more-stories-section {
+                padding: 20px;
+            }
+            .story-card img {
+                height: 140px; /* Smaller image height for very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <img src="1.png" alt="Christ University Logo">
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#">Admissions</a>
+                <a href="#">Academics</a>
+                <a href="#">Campus Life</a>
+                <a href="#">News & Events</a>
+                <a href="#" class="active mobile-button">Alumni</a> </nav>
+        </div>
+    </header>
+
+    <div class="overlay" id="overlay"></div> <main class="container">
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>CHRIST UNIVERSITY CELEBRATES OUR STAR ALUMNUS!</h1>
+                <p>Pradeep Raj achieves Lead Executive Officer position with a 20 LPA package at Cognizant (B-Tech 2022-26).</p>
+                <p>We are incredibly proud of his accomplishment and wish him continued success!</p>
+            </div>
+            <div class="hero-image">
+                <img src="1.png" alt="Pradeep Raj Cognizant Poster">
+                </div>
+        </section>
+
+        <section class="more-stories-section">
+            <h2>More Success Stories <i class="fas fa-search search-icon"></i></h2> <div class="story-cards">
+                <a href="#" class="story-card">
+                    <img src="1.png" alt="Alumni Success Story 1">
+                    <h3>Priya Sharma lands role at Google</h3>
+                    <p>B-Tech CSE 2021-25 alumna makes waves in the tech industry.</p>
+                </a>
+                <a href="#" class="story-card">
+                    <img src="1.png" alt="Alumni Success Story 2">
+                    <h3>Ankit Singh's Startup reaches new heights</h3>
+                    <p>MBA graduate from 2020-22 batch secures major funding.</p>
+                </a>
+                <a href="#" class="story-card">
+                    <img src="1.png" alt="Alumni Success Story 3">
+                    <h3>Dr. Kavita Rao recognized for research</h3>
+                    <p>PhD alumna from 2018 is honored for her groundbreaking work.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Christ University. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript for Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active'); // Add active class to hamburger for animation
+            overlay.classList.toggle('active');
+            // Disable scroll when menu is open
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu); // Close menu when overlay is clicked
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close if the menu is actually open (on mobile)
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu on resize if it's open (to prevent weird states)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992 && navLinks.classList.contains('active')) {
+                toggleMenu(); // Close if resized to desktop view
+            }
+        });
+    </script>
+</body>
+</html>
